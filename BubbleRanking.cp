@@ -10,18 +10,17 @@ void bubble_sort(T arr[], int len) {
 }
 int main() {
         int arr[] = { 61, 17, 29, 22, 34, 60, 72, 21, 50, 1, 62 };
-        int len = (int) sizeof(arr) / sizeof(*arr);
+        int len = (int) sizeof(arr) / sizeof(arr[0]);
+ //   strlen——get the length of a string
+ //   sizeof 返回变量或类型（包括集合类型）存储空间的大小
         bubble_sort(arr, len);
         for (int i = 0; i < len; i++)
                 cout << arr[i] << ' ';
         cout << endl;
-        float arrf[] = { 17.5, 19.1, 0.6, 1.9, 10.5, 12.4, 3.8, 19.7, 1.5, 25.4, 28.6, 4.4, 23.8, 5.4 };
-        len = (float) sizeof(arrf) / sizeof(*arrf);
-        bubble_sort(arrf, len);
-        for (int i = 0; i < len; i++)
-                cout << arrf[i] << ' '<<endl;
+//        float arrf[] = { 17.5, 19.1, 0.6, 1.9, 10.5, 12.4, 3.8, 19.7, 1.5, 25.4, 28.6, 4.4, 23.8, 5.4 };
+//        len = (float) sizeof(arrf) / sizeof(*arrf);
+//        bubble_sort(arrf, len);
+//        for (int i = 0; i < len; i++)
+//                cout << arrf[i] << ' '<<endl;
         return 0;
 }
-//branch test
-//branch merge test: here is the master branch
-
