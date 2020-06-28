@@ -17,29 +17,23 @@ template<class T>
 //    }
 //}
 
-void shell_sort(T a[],size_t n)
+void shell_sort(T arr[],int len)
 {
-    int i,j,k,group;
-    for (group = n/2; group > 0; group /= 2)//增量序列为n/2,n/4....直到1
-    {
-        for (i = 0; i < group; ++i)//一共选出group个组
-        {
-            for (j = i+group; j < n; j += group)//i=0时把第一组选出的元素给搞在一起，分别为a[i],a[i+group],a[i+group+group]...
-                    {
-                        //对每个分组进行插入排序
-                        if (a[j - group] > a[j])//只有当前元素a[j]小于a[j-group](前面排好序的最右边的值)，才需要插值
-                                {
-                                    T temp = a[j];//a[j]为需要插入的值
-                                    k = j - group;//标记需要插入的位置
-                                    while (k>=0 && a[k]>temp)//找出需要插入的位置
-                                    {
-                                        a[k+group] = a[k]; //把a[k]复制并且移动到下一位
-                                        k -= group;//如果满足插入条件，temp会不断的和前面的值比较，直到找到需要插入的位置k
-                                    }
-                                    a[k+group] = temp;//找到位置以后插入位置，因为while中多减去了一个group的值，所以插入的时候需要加上group
-                                }
-                    }
-        }
+
+    for(int Distance=len/2;Distance>0;Distance/=2){//增量序列为n/2,n/4....直到1
+        for(int i=0;i<Distance;i++){
+            for(int j=i+Distance;j<len;j+=Distance){//i=0时把第一组选出的元素给搞在一起，分别为a[i],a[i+distance],a[i+distance+distance]...
+                //对每个分组进行插入排序
+                if(arr[j]<arr[j-Distance]){//只有当前元素a[j]小于a[j-group](前面排好序的最右边的值)，才需要插值
+                    T key=arr[j];//记录需要插入的值
+                    int k=j-Distance;//标记需要插入的位置
+                while (key<arr[k]&&k>0) {//找出需要插入的位置
+                        arr[k+Distance]=arr[k];//把a[k]复制并且移动到下一位
+                        k-=Distance;//如果满足插入条件，temp会不断的和前面的值比较，直到找到需要插入的位置k
+                }
+                arr[k+Distance]=key;//找到位置以后插入位置，因为while中多减去了一个group的值，所以插入的时候需要加上group
+            }
+            }}
     }
 }
 int main()
