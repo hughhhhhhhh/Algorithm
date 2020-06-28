@@ -1,4 +1,5 @@
 //insertion ranking method
+//关键点是把比较以后大的数，往右边复制+移一位
 #include <iostream>
 using namespace std;
 template<class T>
