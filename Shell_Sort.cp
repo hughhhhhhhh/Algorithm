@@ -27,7 +27,7 @@ void shell_sort(T a[],size_t n)
             for (j = i+group; j < n; j += group)//i=0时把第一组选出的元素给搞在一起，分别为a[i],a[i+group],a[i+group+group]...
                     {
                         //对每个分组进行插入排序
-                        if (a[j - group] > a[j])//如果当前元素a[j]小于a[j-group](前面排好序的最右边的值)
+                        if (a[j - group] > a[j])//只有当前元素a[j]小于a[j-group](前面排好序的最右边的值)，才需要插值
                                 {
                                     T temp = a[j];//a[j]为需要插入的值
                                     k = j - group;//标记需要插入的位置
