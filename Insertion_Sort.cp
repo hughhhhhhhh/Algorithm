@@ -3,16 +3,15 @@
 using namespace std;
 template<class T>
 void insertion_sort(T arr[],int len){
-        for(int i=1;i<len;i++){ // 从下标为1的元素开始选择合适的位置插入，因为下标为0的只有一个元素，默认是有序的
-                T key=arr[i];// 记录要插入的数据
-                // 从已经排序的序列最右边的开始比较，找到比其小的数
-                int j=i-1;
-                while((j>=0) && (key<arr[j])){
-                        arr[j+1]=arr[j];
-                        j--;
-                }
-                arr[j+1]=key;  // 存在比其小的数，插入
+    for(int i=1;i<len;i++){
+        T key=arr[i];//key为要插入的值
+        int j=i-1;//j为排序好的最右边的一位
+        while((key<arr[j])&&(j>=0)){
+            arr[j+1]=arr[j];
+            j--;
         }
+        arr[j+1]=key; //key>arr[j],所以吧key放在arr[j+1]的位置
+    }
 }
 int main()
 {
