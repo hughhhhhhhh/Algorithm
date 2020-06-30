@@ -14,7 +14,7 @@ int partition(int array[],int p,int r)//R为最右的数，P为最左边的数
         }
     }
     swap(array[r],array[i+1]);//将x切换到中间来，左边是小于x的，右边是大于x的值
-    return i+1;
+    return i+1;//返回划分元素的最终位置
 }
  
 int partitionRandom(int array[],int p,int r)
